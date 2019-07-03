@@ -31,8 +31,9 @@
 </nav>
 <div class="container">
 	<h1 class="text-secondary border boder-sucess border-top-0 border-left-0 border-right-0" th:text="${titulo}"></h1>
-	
-	<a th:href="@{/form}">Crear cliente</a>
+	<p>
+	<a th:href="@{/form}" class="btn btn-default btn-xs">Crear cliente</a>
+	</p>
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -41,15 +42,17 @@
 				<th>apellido</th>
 				<th>email</th>
 				<th>fecha</th>
+				<th>editor</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="cliente: ${clientes}">
+			<tr th:each="cliente: ${clientes}" >
 				<td th:text="${cliente.id}"></td>
 				<td th:text="${cliente.nombre}"></td>
 				<td th:text="${cliente.apellido}"></td>
 				<td th:text="${cliente.email}"></td>
 				<td th:text="${cliente.createAt}"></td>
+				<td><a class="btn btn-primary btn-xs" th:href="@{/form/} + ${cliente.id}" th:text="editar"></a></td>
 			</tr>
 		</tbody>
 	</table>
